@@ -252,7 +252,7 @@ shared object anyChar extends Regular() {
     shared actual MatchResult? matchAt(Integer position, String s,
             Integer? maxLength) {
         if (exists maxLength, maxLength < 1) { return null; }
-        if (exists c = s[position]) { return Res(s[0:1], 1); }
+        if (exists c = s[position]) { return Res(c.string, 1); }
         return null;
     }
 }
@@ -261,7 +261,7 @@ shared object anyLetter extends Regular() {
     shared actual MatchResult? matchAt(Integer position, String s,
             Integer? maxLength) {
         if (exists maxLength, maxLength < 1) { return null; }
-        if (exists c = s[position], c.letter) { return Res(s[0:1], 1); }
+        if (exists c = s[position], c.letter) { return Res(c.string, 1); }
         return null;
     }
 }
@@ -270,7 +270,7 @@ shared object anyDigit extends Regular() {
     shared actual MatchResult? matchAt(Integer position, String s,
             Integer? maxLength) {
         if (exists maxLength, maxLength < 1) { return null; }
-        if (exists c = s[position], c.digit) { return Res(s[0:1], 1); }
+        if (exists c = s[position], c.digit) { return Res(c.string, 1); }
         return null;
     }
 }
@@ -279,7 +279,7 @@ shared object anyUpper extends Regular() {
     shared actual MatchResult? matchAt(Integer position, String s,
             Integer? maxLength) {
         if (exists maxLength, maxLength < 1) { return null; }
-        if (exists c = s[position], c.uppercase) { return Res(s[0:1], 1); }
+        if (exists c = s[position], c.uppercase) { return Res(c.string, 1); }
         return null;
     }
 }
@@ -288,7 +288,7 @@ shared object anyLower extends Regular() {
     shared actual MatchResult? matchAt(Integer position, String s,
             Integer? maxLength) {
         if (exists maxLength, maxLength < 1) { return null; }
-        if (exists c = s[position], c.lowercase) { return Res(s[0:1], 1); }
+        if (exists c = s[position], c.lowercase) { return Res(c.string, 1); }
         return null;
     }
 }
